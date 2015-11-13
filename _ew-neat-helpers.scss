@@ -1,0 +1,28 @@
+//////////////////////////////
+// Bourbon Neat Helpers
+//////////////////////////////
+
+
+// Helper Media Range function for a specific Viewport Range
+@mixin media-range($range1, $range2) {
+  @media all and (min-width: $range1) and (max-width: $range2 - 1) {
+    @content;
+  }
+}
+
+// This is a helper function for clearfix of rows with items with the
+// same column size.
+//
+// i.e. you have 9 floating items and want to ensure they get sorted in
+// rows of 3 with span-columns(4) over a grid of 12.
+// Calling clear-rows(3) ensures all elements create a new line and don't get
+// stucked in different item heights
+@mixin clear-rows($span) {
+  // Set the new Row Fix
+  &:nth-child(#{$span}n){
+    margin-right: 0;
+  }
+  &:nth-child(#{$span}n+1){
+    clear: both;
+  }
+}
